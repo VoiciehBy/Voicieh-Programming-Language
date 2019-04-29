@@ -120,6 +120,8 @@ int main()
                 cout << "<" << keywords[i] << ">" << "::=" << description[i] << endl;
             }
         }
+        else
+            cout << "Brak takiego slovka w slovnika" << endl;
     }
 }
 //    Program is an interpreter of my own programming language called 'Voicieh' in short 'VPL'.
