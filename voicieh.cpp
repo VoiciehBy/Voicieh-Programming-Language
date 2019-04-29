@@ -90,7 +90,7 @@ int main()
             ofstream file;
             file.open("plik.voi");
             file << "Plik zostal utworzony za pomocom jenzyka VOICIEH."<< "\n"<< "-------------------------------------------------";
-            cin >>s;
+            cin >> s;
             file << "\n" << s ;
             file.close();
         }
