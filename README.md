@@ -20,5 +20,6 @@
 <tr><td>"nadpisz"::=nadpisuje slovo do pliku.</td></tr>
 <tr><td>"dopisz"::=dopisuje slovo do pliku.</td></tr>
 <tr><td>"powiedz"::=vysvietla ciong znakuv podanych przez uszydkovnika.</td></tr>
+<tr><td>"otworz"::=otwiera plik.</td></tr>
 <tr><td>"pomoc"::=vysvietla pomoc.</td></tr>
 </table>
