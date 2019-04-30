@@ -1,10 +1,10 @@
 #include <iostream>
 #include <cstdlib>
+#include <windows.h>
 #include <fstream>
 using namespace std;
 int main()
 {
-
     cout << " VV         VV OOOO IIIII" << endl;
     cout << "  VV       VV O    O  I" << endl;
     cout << "   V       V  O    O  I" << endl;
@@ -12,17 +12,21 @@ int main()
     cout << "     V   V    O    O  I" << endl;
     cout << "      V V     O    O  I" << endl;
     cout << "       V       OOOO IIIII" << endl;
-    cout << "Copyright (C) 2019  Wojcieh Białek" << endl;
+    cout << "Copyright (C) 2019  Wojcieh Bia³ek" << endl;
     cout << "This program comes with ABSOLUTELY NO WARRANTY." << endl;
     cout << "This is free software, and you are welcome to redistribute it." << endl;
     cout << "under certain conditions for details read LICENSE." << endl;
+    Sleep(1000);
+    //sleep(1);
     system("CLS");
+    //system("clear");
     int a=0,b;
     string input;
     string keywords[]
     {
         "siema","dawaj","muvta","dolejta","dodaj","siuraj","odejmij",
-        "mnoga","dziel","czysc","kruci","nadpisz","dopisz","powiedz","pomoc"
+        "mnoga","dziel","czysc","kruci","nadpisz","dopisz","powiedz",
+        "otworz","pomoc"
     };
     string description[]
     {
@@ -32,7 +36,7 @@ int main()
         "dodaje do pojemnika 'a'.","odejmuje od pojemnika 'a'.",
         "mnozy zawartoscz pojemnika 'a'.","dzieli zawartoscz pojemnika 'a'.",
         "czysci.","opuszcza interpretator.","nadpisuje slovo do pliku.","dopisuje slovo do pliku.",
-        "vysvietla ciong znakuv podanych przez uszydkovnika."
+        "vysvietla ciong znakuv podanych przez uszydkovnika.","otwiera plik."
     };
     while(3!=5)
     {
@@ -99,7 +103,7 @@ int main()
             string s;
             ofstream file;
             file.open("plik.voi",ios::app);
-            cin >>s;
+            cin >> s;
             file << "\n" << s ;
             file.close();
         }
@@ -112,10 +116,17 @@ int main()
         }
         else if(input==keywords[14])
         {
+            system("type plik.voi");
+            //system("cat plik.voi");
+            cout << endl;
+            cout << "KONIEC PLIKU" << endl;
+        }
+        else if(input==keywords[15])
+        {
             cout << "Lista slovek kluczowych:" << endl;
             for(int i=0; i<22; i++)
                 cout << "-";
-            for (int i=0; i<14; i++)
+            for (int i=0; i<15; i++)
             {
                 cout << "<" << keywords[i] << ">" << "::=" << description[i] << endl;
             }
@@ -125,7 +136,7 @@ int main()
     }
 }
 //    Program is an interpreter of my own programming language called 'Voicieh' in short 'VPL'.
-//    Copyright (C) 2019  Wojcieh Białek
+//    Copyright (C) 2019  Wojcieh Bia³ek
 //
 //    This program is free software: you can redistribute it and/or modify
 //    it under the terms of the GNU General Public License as published by
