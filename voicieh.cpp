@@ -3,24 +3,34 @@
 #include <cstring>
 #include <fstream>
 
+std::string filename()
+{
+    std::string filename;
+    std::cout << "Podaj nazwe pliku:";
+    std::cin >> filename;
+    filename += ".voi";
+    return filename;
+}
+
 void pause_n_clear()
 {
     std::cout << "Aby przejsc dalej nacisnij dowolny klawisz . . ." << std::endl
-              << "Przyciski typu zasilanie nie wchodza w gre,hehe . . ." << std::endl;
+              << "Przyciski typu zasilanie nie wchodza w gre,hehe . . ." << std::endl
+              << "...";
+    std::cin.get();
+
 #ifdef _WIN32
-    system("PAUSE >NUL");
     system("CLS");
 #elif __unix__
-    system("read -p ... .");
     system("clear");
 #elif __APPLE__
     std::cout << "JABKO..." << std::endl;
-    system("read -p ... .");
     system("clear");
 #else
     std::cout << "OS not supported!" << std::endl;
 #endif
 }
+
 void clear_window()
 {
 #ifdef _WIN32
@@ -34,6 +44,7 @@ void clear_window()
     std::cout << "OS not supported!" << std::endl;
 #endif
 }
+
 void open_file(std::string &filename)
 {
 #ifdef _WIN32
@@ -70,14 +81,6 @@ void convert_to_lower_case(std::string &s)
 {
     for(int i = 0; i < s.length(); i++)
         s[i] = tolower(s[i] );
-}
-std::string filename()
-{
-    std::string filename;
-    std::cout << "Podaj nazwe pliku:";
-    std::cin >> filename;
-    filename += ".voi";
-    return filename;
 }
 
 void nadpisz()
