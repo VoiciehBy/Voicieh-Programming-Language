@@ -5,20 +5,16 @@
 
 void pause_n_clear()
 {
+    std::cout << "Aby przejsc dalej nacisnij dowolny klawisz . . ." << std::endl
+              << "Przyciski typu zasilanie nie wchodza w gre,hehe . . ." << std::endl;
 #ifdef _WIN32
-    system("echo Aby przejsc dalej nacisnij dowolny klawisz . . .");
-    system("echo Przyciski typu zasilanie nie wchodza w gre,hehe . . .");
     system("PAUSE >NUL");
     system("CLS");
 #elif __unix__
-    system("echo Aby przejsc dalej nacisnij dowolny klawisz . . .");
-    system("echo Przyciski typu zasilanie nie wchodza w gre,hehe . . .");
     system("read -p ... .");
     system("clear");
 #elif __APPLE__
     std::cout << "JABKO..." << std::endl;
-    system("echo Aby przejsc dalej nacisnij dowolny klawisz . . .");
-    system("echo Przyciski typu zasilanie nie wchodza w gre,hehe . . .");
     system("read -p ... .");
     system("clear");
 #else
