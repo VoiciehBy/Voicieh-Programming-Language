@@ -83,7 +83,7 @@ void nadpisz()
     std::ofstream file;
     file.open(fname);
     file << "Plik zostal utworzony za pomocom jenzyka VOICIEH."<< "\n"<< "-------------------------------------------------";
-    std::cout << "Podaj wyraz do dopisania:";
+    std::cout << "Podaj wyraz nadpisujoncy:";   
     std::cin >> s;
     file << "\n" << s ;
     file.close();
@@ -93,8 +93,7 @@ void dopisz()
 {
     std::string s,fname = filename();
     std::ofstream file;
-    file.open(fname,std::ios::app);
-    std::cout << "Podaj wyraz nadpisujoncy:";
+    std::cout << "Podaj wyraz do dopisania:"; file.open(fname,std::ios::app);
     std::cin >> s;
     file << "\n" << s ;
     file.close();
