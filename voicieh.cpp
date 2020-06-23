@@ -1,8 +1,8 @@
 #include <iostream>
 #include <cstdlib>
 #include <cstring>
-#include <fstream>
 #include <cstdio>
+#include <fstream>
 
 std::string filename()
 {
