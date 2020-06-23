@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <cstring>
 #include <fstream>
+#include <cardio>
 
 std::string filename()
 {
@@ -47,34 +48,27 @@ void clear_window()
 
 void open_file(std::string &filename)
 {
-#ifdef _WIN32
-    filename = '"' + filename;
-    filename += '"';
-    std::string win = "TYPE " + filename;
-    std::cout << win << std::endl;
-    char* temp = new char [win.length()+1];
-    for(int i = 0; i < win.length(); i++)
-        temp[i] = win[i];
-    temp[win.length()] = 0;
-    system(temp);
-#elif __unix__
-    std::string linux = "cat " + filename;
-    char* temp = new char [linux.length()];
-    for(int i = 0; i < linux.length(); i++)
-        temp[i] = linux[i];
-    temp[linux.length()] = 0;
-    system(temp);
-#elif __APPLE__
-    std::cout << "APPLE..." << std::endl;
-    std::string apple = "cat" + filename;
-    char* temp = new char [apple.length()];
-    for(int i = 0; i < linux.length(); i++)
-        temp[i] = apple[i];
-    temp[apple.length()] = 0;
-    system(temp);
-#else
-    std::cout << "OS not supported!" << std::endl;
-#endif
+	char* fn = new char[filename.size()];
+	int j = filename.size();
+	for(int i = 0; i < j;i++)
+	fn[i] = filename[i];
+FILE* fptr = fopen(fn,"r");
+
+if(!fptr)
+{
+	std::cout << "NIE MOZNA OTWORZYC PLIKU" << std::endl;
+}
+else
+{
+	char ch;
+	while(!feof(fptr))
+	  {
+	  	ch = getc(fptr);
+	  	putchar(ch);
+	  }
+}
+
+fclose(fptr);
 }
 
 void convert_to_lower_case(std::string &s)
@@ -231,7 +225,7 @@ int main()
 }
 
 //    Program is an interpreter of my own programming language called 'Voicieh' in short 'VPL'.
-//    Copyright (C) 2019 - 2020 Wojcieh Bia³ek
+//    Copyright (C) 2019 - 2020 Wojcieh Białek
 //
 //    This program is free software: you can redistribute it and/or modify
 //    it under the terms of the GNU General Public License as published by
