@@ -61,13 +61,29 @@ void get_from_file_to_array(std::string filename,std::string* array_a,int s_i_z_
     fptr.close();
 }
 
-void loadKeywords(std::string* keywords, std::string* descriptions) {
+void loadKeywords(std::vector<Keyword> KeyWords) {
+    std::string* keywords = new std::string[17];
+    std::string* descriptions = new std::string[17];
+
     get_from_file_to_array("keywords.voi",keywords,17,' ');
-    get_from_file_to_array("descriptions.voi",descriptions,15,',');
+    get_from_file_to_array("descriptions.voi",descriptions,17,',');
+
+    for(unsigned int i = 0; i < 17; i++)
+        KeyWords.push_back(Keyword(keywords[i],descriptions[i]));
+
+    delete keywords;
+    delete descriptions;
 }
 
 int getInputInt() {
     int i;
     std::cin >> i;
     return i;
+}
+
+int keywordId(std::string input,std::vector<Keyword> keywords) {
+    for(unsigned int i = 0; i < 17; i++)
+        if(input == keywords[i].getName())
+            return i;
+    return -1;
 }

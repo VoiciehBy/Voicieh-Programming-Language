@@ -2,7 +2,9 @@
 #define VOICIEH_H
 
 #include <iostream>
+#include <vector>
 #include "Bucket.h"
+#include "Keyword.h"
 #include "utility.h"
 
 extern void czysc();
@@ -15,9 +17,7 @@ extern void powiedz();
 
 extern void otworz();
 
-extern void drukuj_pomoc(std::string* keywords,std::string* description);
-
-extern void loadKeywords(std::string* keywords, std::string* descriptions);
+extern void drukuj_pomoc(std::vector<Keyword> keywords);
 
 extern void interpret_given_keyword(std::string kword);
 
