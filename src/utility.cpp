@@ -61,7 +61,7 @@ void get_from_file_to_array(std::string filename,std::string* array_a,int s_i_z_
     fptr.close();
 }
 
-void loadKeywords(std::vector<Keyword> KeyWords) {
+void loadKeywords(std::vector<Keyword> &KeyWords) {
     std::string* keywords = new std::string[17];
     std::string* descriptions = new std::string[17];
 
@@ -87,3 +87,4 @@ int keywordId(std::string input,std::vector<Keyword> keywords) {
             return i;
     return -1;
 }
+
