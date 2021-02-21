@@ -14,5 +14,5 @@ void Keyword::setDescription(std::string descriptionToBeSet) {
 }
 void Keyword::show()
 {
-    std::cout << "<" << name << ">" << "::=" << description << std::endl;
+    std::cout << "<" << name << ">" << "-" << description << std::endl;
 }

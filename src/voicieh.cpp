@@ -93,7 +93,7 @@ void interpret_given_keyword_based_on_its_id(int keywordId,std::vector<Keyword> 
 }
 
 void spawn_interpreter_in_console() {
-    std::string opening = " VV         VV OOOO IIIII\n  VV       VV O    O  I\n   V       V  O    O  I\n    V     V   O    O  I\n     V   V    O    O  I\n      V V     O    O  I\n       V       OOOO IIIII\nCopyright (C) 2019 - 2020 Wojcieh Białek\nThis program comes with ABSOLUTELY NO WARRANTY.\nThis is free software, and you are welcome to redistribute it.\nunder certain conditions for details read LICENSE.\n";
+    std::string opening = " VV         VV OOOO IIIII\n  VV       VV O    O  I\n   V       V  O    O  I\n    V     V   O    O  I\n     V   V    O    O  I\n      V V     O    O  I\n       V       OOOO IIIII\nCopyright (C) 2019 - 2021 Wojcieh Białek\nThis program comes with ABSOLUTELY NO WARRANTY.\nThis is free software, and you are welcome to redistribute it.\nunder certain conditions for details read LICENSE.\n";
     std::cout << opening;
     pause_n_clear();
 

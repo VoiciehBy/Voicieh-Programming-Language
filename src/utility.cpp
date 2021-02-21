@@ -71,8 +71,8 @@ void loadKeywords(std::vector<Keyword> &KeyWords) {
     for(unsigned int i = 0; i < 17; i++)
         KeyWords.push_back(Keyword(keywords[i],descriptions[i]));
 
-    delete keywords;
-    delete descriptions;
+    //delete keywords;
+    //delete descriptions;
 }
 
 int getInputInt() {

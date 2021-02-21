@@ -5,7 +5,7 @@ int main() {
     return 0;
 }
 //    Program is an interpreter of my own programming language called 'Voicieh Programming Language' in short 'VPL'.
-//    Copyright (C) 2019 - 2020 Wojcieh Białek
+//    Copyright (C) 2019 - 2021 Wojcieh Białek
 //
 //    This program is free software: you can redistribute it and/or modify
 //    it under the terms of the GNU General Public License as published by
