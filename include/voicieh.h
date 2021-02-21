@@ -17,6 +17,9 @@ extern void powiedz();
 
 extern void otworz();
 
+extern std::string keywordInC(std::string keywordInVPL);
+extern void tlumacz();
+
 extern void drukuj_pomoc(std::vector<Keyword> keywords);
 
 extern void interpret_given_keyword(std::string kword);

@@ -46,6 +46,62 @@ void otworz() {
     std::cout << std::endl << "KONIEC PLIKU" << std::endl;
 }
 
+std::string keywordInC(std::string keywordInVPL) {
+    if(keywordInVPL == "publiczna")
+        return "public";
+    else if(keywordInVPL == "prywatna")
+        return "private";
+   /*
+   else if(keywordInVPL == "logiczna")
+        return "bool";
+    */
+    else if(keywordInVPL == "calkowita")
+        return "int";
+    else if(keywordInVPL == "klasa")
+        return "class";
+    else if(keywordInVPL == "jesli")
+        return "if";
+    else if(keywordInVPL == "jesliNie")
+        return "else";
+    else if(keywordInVPL == "funkcja")
+        return "";
+    else if(keywordInVPL == "zwroc")
+        return "return";
+    /*
+    else if(keywordInVPL == "prawda")
+        return "true";
+    else if(keywordInVPL == "falsz")
+        return "false";
+        */
+    else
+        return keywordInVPL;
+}
+
+void tlumacz() {
+    std::string fname = filename();
+    char* fn = new char[fname.size()];
+    for(unsigned int i = 0; i < fname.size(); i++) fn[i] = fname[i];
+
+    std::ifstream voiSrc;
+    std::ofstream cSrc;
+    voiSrc.open(fn);
+    cSrc.open("out.cpp");
+    if(!voiSrc) {
+        std::cout << "NIE MOZNA OTWORZYC PLIKU" << std::endl;
+    } else {
+        int lineNumber = 1;
+        std::string line;
+        while(std::getline(voiSrc, line,' ')) {
+            std::cout << "line" << lineNumber << ":" <<keywordInC(line) << std::endl;
+            if(line == "-1") break;
+            else cSrc << keywordInC(line) << " ";
+            lineNumber++;
+        }
+    }
+    voiSrc.close();
+    cSrc.close();
+}
+
 void drukuj_pomoc(std::vector<Keyword> keywords) {
     std::cout << "Lista slovek kluczowych:" << std::endl;
     for(int i=0; i<22; i++)
@@ -87,6 +143,7 @@ void interpret_given_keyword_based_on_its_id(int keywordId,std::vector<Keyword> 
     else if (keywordId == 13) powiedz();
     else if (keywordId == 14) otworz();
     else if (keywordId == 15 || keywordId == 16) drukuj_pomoc(keywords);
+    else if (keywordId == 17) tlumacz();
     else std::cout << "Brak takiego slovka w slovnika" << std::endl;
 
     delete a;
