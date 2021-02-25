@@ -82,7 +82,8 @@ void tlumacz() {
     fname = filename();
 
     std::ifstream voiSrc;
-    std::fstream voiTemp;
+    std::ofstream voiTemp;
+    std::ifstream voiTempIF;
     std::ofstream cSrc;
     voiSrc.open(fname);
     voiTemp.open("temp");
@@ -98,20 +99,19 @@ void tlumacz() {
     voiSrc.close();
     voiTemp.close();
 
-    voiTemp.open("temp");
+    voiTempIF.open("temp");
     cSrc.open("out.cpp");
-    if(!voiTemp) return;
-    else {
-        int lineNumber = 1;
+    if(!voiTempIF) return;
+    else {//int lineNumber = 1;
         std::string line;
-        while(std::getline(voiTemp, line,' ')) {
-            std::cout << "line" << lineNumber << ":" <<keywordInC(line) << std::endl;
+        while(std::getline(voiTempIF, line,' ')) { //lineNumber++;std::cout << "line" << lineNumber << ":" <<keywordInC(line) << std::endl;
             if(line == "-1") break;
             else cSrc << keywordInC(line) << " ";
-            lineNumber++;
+
         }
     }
-    voiTemp.close();
+    voiSrc.close();
+    voiTempIF.close();
     cSrc.close();
 }
 
