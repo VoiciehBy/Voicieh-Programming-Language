@@ -51,10 +51,10 @@ std::string keywordInC(std::string keywordInVPL) {
         return "public";
     else if(keywordInVPL == "prywatna")
         return "private";
-   /*
-   else if(keywordInVPL == "logiczna")
-        return "bool";
-    */
+    /*
+    else if(keywordInVPL == "logiczna")
+         return "bool";
+     */
     else if(keywordInVPL == "calkowita")
         return "int";
     else if(keywordInVPL == "klasa")
@@ -78,27 +78,40 @@ std::string keywordInC(std::string keywordInVPL) {
 }
 
 void tlumacz() {
-    std::string fname = filename();
-    char* fn = new char[fname.size()];
-    for(unsigned int i = 0; i < fname.size(); i++) fn[i] = fname[i];
+    std::string fname = " ";
+    fname = filename();
 
     std::ifstream voiSrc;
+    std::fstream voiTemp;
     std::ofstream cSrc;
-    voiSrc.open(fn);
-    cSrc.open("out.cpp");
+    voiSrc.open(fname);
+    voiTemp.open("temp");
     if(!voiSrc) {
-        std::cout << "NIE MOZNA OTWORZYC PLIKU" << std::endl;
+        std::cout << "NIE MOZNA OTWORZYC PLIKU " <<  fname << "." << std::endl;
     } else {
+        std::string line;
+        while(std::getline(voiSrc, line)) {
+            if(line == "-1") break;
+            else voiTemp << keywordInC(line) << " ";
+        }
+    }
+    voiSrc.close();
+    voiTemp.close();
+
+    voiTemp.open("temp");
+    cSrc.open("out.cpp");
+    if(!voiTemp) return;
+    else {
         int lineNumber = 1;
         std::string line;
-        while(std::getline(voiSrc, line,' ')) {
+        while(std::getline(voiTemp, line,' ')) {
             std::cout << "line" << lineNumber << ":" <<keywordInC(line) << std::endl;
             if(line == "-1") break;
             else cSrc << keywordInC(line) << " ";
             lineNumber++;
         }
     }
-    voiSrc.close();
+    voiTemp.close();
     cSrc.close();
 }
 
