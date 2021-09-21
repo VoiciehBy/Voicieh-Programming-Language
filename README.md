@@ -23,4 +23,5 @@
 <tr><td>"otworz"-otwiera plik.</td></tr>
 <tr><td>"pomoc"-vysvietla pomoc.</td></tr>
 <tr><td>"?"-vysvietla pomoc.</td></tr>
+<tr><td>"tlumacz"-tlumaczy zawartosc podanego pliku na jenzyk C++.</td></tr>
 </table>
