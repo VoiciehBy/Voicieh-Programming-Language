@@ -57,10 +57,8 @@ std::string keywordInC(std::string keywordInVPL)
         return "public";
     else if(keywordInVPL == "prywatna")
         return "private";
-    /*
     else if(keywordInVPL == "logiczna")
-         return "bool";
-     */
+        return "bool";
     else if(keywordInVPL == "calkowita")
         return "int";
     else if(keywordInVPL == "klasa")
@@ -83,6 +81,8 @@ std::string keywordInC(std::string keywordInVPL)
         return "false;";
     else if(keywordInVPL == "siema()" || keywordInVPL == "siema();")
         return "printf(\"Witaj kmiocie!\\n\");";
+    else if(keywordInVPL == "czysc()" || keywordInVPL == "czysc();")
+        return "#ifdef _WIN32\n system(\"CLS\");\n #elif __unix__\n system(\"clear\");\n #elif __APPLE__\n printf(\"APPLE...\n\");\n system(\"clear\"); \n #else \n printf(\"OS not supported!\n\"); \n #endif";
     else if(keywordInVPL == "kruci()" || keywordInVPL == "kruci();")
         return "exit(1);";
     else
