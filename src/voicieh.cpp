@@ -100,10 +100,7 @@ void tlumacz()
     std::ofstream cSrc;
     voiSrc.open(fname);
     voiTemp.open("temp");
-    if(!voiSrc)
-    {
-        std::cout << "NIE MOZNA OTWORZYC PLIKU " <<  fname << "." << std::endl;
-    }
+    if(!voiSrc) std::cout << "NIE MOZNA OTWORZYC PLIKU " <<  fname << "." << std::endl;
     else
     {
         std::string line;
@@ -119,11 +116,11 @@ void tlumacz()
     voiTempIF.open("temp");
     cSrc.open("out.cpp");
     if(!voiTempIF) return;
-    else  //int lineNumber = 1;
+    else
     {
         cSrc << "#include <cstdlib>\n";
         std::string line;
-        while(std::getline(voiTempIF, line,' '))   //lineNumber++;std::cout << "line" << lineNumber << ":" <<keywordInC(line) << std::endl;
+        while(std::getline(voiTempIF, line,' '))
         {
             if(line == "-1") break;
             else cSrc << keywordInC(line) << " ";
